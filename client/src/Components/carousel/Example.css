@@ -1,0 +1,43 @@
+.slider1{
+    height:600px;
+    margin-top: 200px;
+    color: white;
+    
+}
+.slider1 h1{
+display: flex;
+justify-content: center;
+margin-top: 50px;
+
+
+
+}
+
+.slider2{
+    height:600px;
+    margin-top: 200px;
+    color: white;
+}
+.slider2 h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    
+    }
+.slider3{
+    height:600px;
+    margin-top: 200px;
+    color: white;
+    align-items: center;
+}
+
+.slider3 h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    align-items: center;
+    
+    
+    }
