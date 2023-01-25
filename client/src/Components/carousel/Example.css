@@ -8,6 +8,9 @@
 display: flex;
 justify-content: center;
 margin-top: 50px;
+position: absolute;
+transform: translate(450px,200px);
+font-size: 55px;
 
 
 
@@ -22,6 +25,11 @@ margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
+position: absolute;
+transform: translate(450px,200px);
+font-size: 55px;
+    
     
     
     
@@ -38,6 +46,10 @@ margin-top: 50px;
     justify-content: center;
     margin-top: 50px;
     align-items: center;
+  
+position: absolute;
+transform: translate(450px,200px);
+font-size: 55px;
     
     
     }

@@ -10,7 +10,7 @@ app.use(cors())
 
 
 const ProductSchema = new mongoose.Schema({
-    name1: String,
+    name: String,
     description: String,
     auther:String,
     price:Number,
@@ -27,7 +27,7 @@ const ProductSchema = new mongoose.Schema({
     .catch((err) => console.error(err));
   
   const addProductSchema = Joi.object({
-    name1: Joi.string().required(),
+    name: Joi.string().required(),
     description: Joi.string().required(),
     auther: Joi.string().required(),
     price: Joi.number().required(),
