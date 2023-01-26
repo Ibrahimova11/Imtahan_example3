@@ -1,24 +1,66 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Example from "../../Components/carousel/Example";
-
+import toast, { Toaster } from "react-hot-toast";
 import "./Home.css";
 const Home = () => {
+  
   const [cards, setCards] = useState([]);
+  let [toggle, setToggle] = useState(true);
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/products")
       .then((res) => setCards(res.data));
   }, []);
+
+  function getData() {
+    axios.get("http://localhost:8080/api/products").then((res) => {
+      setCards(res.data);
+    });
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+
+  function sortData(obj) {
+    setToggle(!toggle);
+    if (toggle) {
+      let sortedData = obj.sort((a, b) => b.price - a.price);
+      setCards([...sortedData]);
+    } else {
+      getData();
+    }
+  }
+
+  function searchData(e) {
+    axios.get("http://localhost:8080/api/products").then((res) => {
+      let search = res.data.filter((element) =>
+        element.name
+          .toLocaleLowerCase()
+          .includes(e.target.value.toLocaleLowerCase())
+      );
+      setCards(search);
+    });
+  }
+  
   console.log(cards);
   return (
     <div>
       <Example />
+      
       <div className="black__box">
+      <button
+      className="sortBtn"
+      onClick={() => {
+        sortData(cards);
+      }}
+    >
+      Sort by Price
+    </button>
         <div className="yellow__line"></div>
         <h2>Popular Courses</h2>
       </div>
-
+      
       <div className="black__box__container">
         {cards.map((card) => {
           return (
